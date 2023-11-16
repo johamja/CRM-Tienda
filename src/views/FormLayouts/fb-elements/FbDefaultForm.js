@@ -7,6 +7,7 @@ import {
   Typography,
   TextField,
   Button,
+  Snackbar,
 } from "@mui/material";
 
 const CustomerSupportForm = () => {
@@ -14,15 +15,32 @@ const CustomerSupportForm = () => {
   const [email, setEmail] = React.useState("");
   const [issue, setIssue] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [openSnackbar, setOpenSnackbar] = React.useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aquí podrías agregar lógica para enviar la solicitud de soporte
+
+    // Lógica para enviar la solicitud de soporte
+    // Aquí podrías realizar la lógica para enviar la solicitud a tu backend
     console.log("Nombre:", name);
     console.log("Email:", email);
     console.log("Asunto:", issue);
     console.log("Mensaje:", message);
-    // Aquí podrías realizar la lógica para enviar la solicitud a tu backend
+
+    // Simulación de envío exitoso del formulario
+    // Aquí podrías reemplazar este setTimeout con la lógica para enviar la solicitud a tu backend
+    setTimeout(() => {
+      setOpenSnackbar(true); // Mostrar Snackbar después de enviar con éxito
+      // Resetear los campos del formulario después de enviar con éxito
+      setName("");
+      setEmail("");
+      setIssue("");
+      setMessage("");
+    }, 1500);
+  };
+
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false); // Cerrar el Snackbar
   };
 
   return (
@@ -90,6 +108,14 @@ const CustomerSupportForm = () => {
           </form>
         </CardContent>
       </Card>
+
+      {/* Snackbar para mostrar mensaje de éxito */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+        message="¡Mensaje enviado con éxito! Pronto nos pondremos en contacto contigo."
+      />
     </div>
   );
 };

@@ -45,7 +45,7 @@ const Menuitems = [
     href: "/form-elements/switch",
   },
   {
-    title: "Form",
+    title: "Servicio al cliente",
     icon: DescriptionOutlinedIcon,
     href: "/form-layouts/form-layouts",
   },

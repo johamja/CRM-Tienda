@@ -26,7 +26,7 @@ const ExSwitch = () => {
             alignItems: "stretch",
           }}
         >
-          <BaseCard title="Default Switch">
+          <BaseCard title="hola">
             <Box sx={{ textAlign: "center" }}>
               <Switch defaultChecked />
               <Switch />
