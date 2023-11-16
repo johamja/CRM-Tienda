@@ -1,10 +1,13 @@
 
 import { Grid, Box } from "@mui/material";
+import CustomerCounter from "./components/CustomerCounter";
 
 const CustomerAnalysis = () => {
     return(
         <Box>
-            <p>Hola</p>
+            <Grid>
+                <CustomerCounter/>
+            </Grid>
         </Box>
     );
 };
