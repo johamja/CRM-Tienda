@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Card,
   CardContent,
@@ -7,241 +6,87 @@ import {
   Box,
   Typography,
   TextField,
-  FormControlLabel,
-  Checkbox,
   Button,
-  Grid,
-  RadioGroup,
-  Radio,
-  FormControl,
-  MenuItem,
 } from "@mui/material";
 
-const numbers = [
-  {
-    value: "one",
-    label: "One",
-  },
-  {
-    value: "two",
-    label: "Two",
-  },
-  {
-    value: "three",
-    label: "Three",
-  },
-  {
-    value: "four",
-    label: "Four",
-  },
-];
+const CustomerSupportForm = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [issue, setIssue] = React.useState("");
+  const [message, setMessage] = React.useState("");
 
-const FbDefaultForm = () => {
-  const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: false,
-    checkedC: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
-  const [value, setValue] = React.useState("");
-
-  const handleChange2 = (event) => {
-    setValue(event.target.value);
-  };
-
-  const [number, setNumber] = React.useState("");
-
-  const handleChange3 = (event) => {
-    setNumber(event.target.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aquí podrías agregar lógica para enviar la solicitud de soporte
+    console.log("Nombre:", name);
+    console.log("Email:", email);
+    console.log("Asunto:", issue);
+    console.log("Mensaje:", message);
+    // Aquí podrías realizar la lógica para enviar la solicitud a tu backend
   };
 
   return (
     <div>
-      {/* ------------------------------------------------------------------------------------------------ */}
-      {/* Basic Checkbox */}
-      {/* ------------------------------------------------------------------------------------------------ */}
-      <Card
-        variant="outlined"
-        sx={{
-          p: 0,
-        }}
-      >
+      {/* Formulario de Soporte al Cliente */}
+      <Card variant="outlined">
         <Box
           sx={{
-            padding: "15px 30px",
+            p: 2,
           }}
           display="flex"
           alignItems="center"
+          justifyContent="center"
+          bgcolor="primary.main"
         >
-          <Box flexGrow={1}>
-            <Typography
-              sx={{
-                fontSize: "18px",
-                fontWeight: "500",
-              }}
-            >
-              Default Form
-            </Typography>
-          </Box>
+          <Typography variant="h6" color="white">
+            Formulario de Soporte al Cliente
+          </Typography>
         </Box>
         <Divider />
-        <CardContent
-          sx={{
-            padding: "30px",
-          }}
-        >
-          <form>
+        <CardContent>
+          <form onSubmit={handleSubmit}>
             <TextField
-              id="default-value"
-              label="Default Text"
+              label="Nombre"
               variant="outlined"
-              defaultValue="George deo"
               fullWidth
-              sx={{
-                mb: 2,
-              }}
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              sx={{ mb: 2 }}
             />
             <TextField
-              id="email-text"
-              label="Email"
+              label="Correo electrónico"
+              variant="outlined"
+              fullWidth
+              required
               type="email"
-              variant="outlined"
-              fullWidth
-              sx={{
-                mb: 2,
-              }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{ mb: 2 }}
             />
             <TextField
-              id="outlined-password-input"
-              label="Password"
-              type="password"
-              autoComplete="current-password"
+              label="Asunto"
               variant="outlined"
               fullWidth
-              sx={{
-                mb: 2,
-              }}
+              required
+              value={issue}
+              onChange={(e) => setIssue(e.target.value)}
+              sx={{ mb: 2 }}
             />
             <TextField
-              id="outlined-multiline-static"
-              label="Textarea"
+              label="Mensaje"
+              variant="outlined"
+              fullWidth
+              required
               multiline
               rows={4}
-              variant="outlined"
-              fullWidth
-              sx={{
-                mb: 2,
-              }}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              sx={{ mb: 2 }}
             />
-            <TextField
-              id="readonly-text"
-              label="Read Only"
-              defaultValue="Hello World"
-              inputprops={{
-                readOnly: true,
-              }}
-              variant="outlined"
-              fullWidth
-              sx={{
-                mb: 2,
-              }}
-            />
-            <Grid
-              container
-              spacing={0}
-              sx={{
-                mb: 2,
-              }}
-            >
-              <Grid item lg={4} md={6} sm={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.checkedA}
-                      onChange={handleChange}
-                      name="checkedA"
-                      color="primary"
-                    />
-                  }
-                  label="Check this custom checkbox"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.checkedB}
-                      onChange={handleChange}
-                      name="checkedB"
-                      color="primary"
-                    />
-                  }
-                  label="Check this custom checkbox"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.checkedC}
-                      onChange={handleChange}
-                      name="checkedC"
-                      color="primary"
-                    />
-                  }
-                  label="Check this custom checkbox"
-                />
-              </Grid>
-              <Grid item lg={4} md={6} sm={12}>
-                <FormControl component="fieldset">
-                  <RadioGroup
-                    aria-label="gender"
-                    name="gender1"
-                    value={value}
-                    onChange={handleChange2}
-                  >
-                    <FormControlLabel
-                      value="radio1"
-                      control={<Radio />}
-                      label="Toggle this custom radio"
-                    />
-                    <FormControlLabel
-                      value="radio2"
-                      control={<Radio />}
-                      label="Toggle this custom radio"
-                    />
-                    <FormControlLabel
-                      value="radio3"
-                      control={<Radio />}
-                      label="Toggle this custom radio"
-                    />
-                  </RadioGroup>
-                </FormControl>
-              </Grid>
-            </Grid>
-            <TextField
-              fullWidth
-              id="standard-select-number"
-              variant="outlined"
-              select
-              label="Select"
-              value={number}
-              onChange={handleChange3}
-              sx={{
-                mb: 2,
-              }}
-            >
-              {numbers.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <div>
-              <Button color="primary" variant="contained">
-                Submit
-              </Button>
-            </div>
+            <Button type="submit" variant="contained" color="primary">
+              Enviar
+            </Button>
           </form>
         </CardContent>
       </Card>
@@ -249,4 +94,4 @@ const FbDefaultForm = () => {
   );
 };
 
-export default FbDefaultForm;
+export default CustomerSupportForm;
