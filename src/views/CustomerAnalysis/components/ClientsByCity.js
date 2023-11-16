@@ -75,7 +75,7 @@ const ClientsByCity = () => {
                         }}
 
                     >Clientes por ciudad</Typography>
-                    <div ref={chartRef} style={{ width: '1000px', height: '400px' }} />
+                    <div ref={chartRef} style={{ width: '1300px', height: '500px' }} />
                 </Box>
             </CardContent>
         </Card>

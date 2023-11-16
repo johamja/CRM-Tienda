@@ -55,7 +55,7 @@ const CustomersPerYear = () => {
                       }}
 
                   >Clientes por año</Typography>
-                  <div ref={chartRef} style={{ width: '600px', height: '400px' }} />
+                  <div ref={chartRef} style={{ width: '1300px', height: '500px' }} />
               </Box>
           </CardContent>
       </Card>
