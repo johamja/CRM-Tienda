@@ -7,6 +7,8 @@ import SwitchCameraOutlinedIcon from '@mui/icons-material/SwitchCameraOutlined';
 import SwitchLeftOutlinedIcon from '@mui/icons-material/SwitchLeftOutlined';
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import AutoAwesomeMosaicOutlinedIcon from '@mui/icons-material/AutoAwesomeMosaicOutlined';
+import PeopleAltOutlined  from '@mui/icons-material/PeopleAltOutlined'
+import StoreOutlined  from '@mui/icons-material/StoreOutlined'
 
 const Menuitems = [
   {
@@ -51,8 +53,13 @@ const Menuitems = [
   },
   {
     title: "Analisis de clientes",
-    icon: AutoAwesomeMosaicOutlinedIcon,
+    icon: PeopleAltOutlined,
     href: "/CustomerAnalysis",
+  },
+  {
+    title: "Rendimiento de ventas",
+    icon: StoreOutlined,
+    href: "/SalesPerformance",
   },
 ];
 
