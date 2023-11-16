@@ -40,7 +40,7 @@ const Menuitems = [
     href: "/form-elements/slider",
   },
   {
-    title: "Switch",
+    title: "Servicios Personalizados",
     icon: SwitchLeftOutlinedIcon,
     href: "/form-elements/switch",
   },
