@@ -10,9 +10,7 @@ const BasicTable = () => {
       <Card variant="outlined">
         <CardContent>
           <Typography variant="h3">Gestión de Clientes</Typography>
-          <Box
-            
-          >
+          <Box>
             <ExTable />
           </Box>
         </CardContent>
