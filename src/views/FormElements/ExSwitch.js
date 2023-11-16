@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Accordion,
@@ -6,10 +6,19 @@ import {
   AccordionDetails,
   Divider,
   styled,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const ServicesList = () => {
+  const [selectedServices, setSelectedServices] = useState([]);
   const services = [
     {
       id: 1,
@@ -47,6 +56,14 @@ const ServicesList = () => {
       available: true,
     },
   ];
+
+  const handleAddService = (service) => {
+    if (service.available) {
+      setSelectedServices([...selectedServices, service]);
+    } else {
+      alert("Este servicio no está disponible actualmente.");
+    }
+  };
 
   const CustomAccordion = styled(Accordion)(({ theme }) => ({
     backgroundColor: "#f5f5f5",
@@ -93,7 +110,7 @@ const ServicesList = () => {
             <Typography>{service.name}</Typography>
           </CustomAccordionSummary>
           <CustomAccordionDetails>
-            <Typography variant="body2" align="center" >
+            <Typography variant="body2" align="center">
               Descripción: {service.description}
             </Typography>
             <Typography variant="body2" align="center" fontWeight="fontWeightBold">
@@ -102,11 +119,49 @@ const ServicesList = () => {
             <Typography variant="body2" align="center" fontWeight="fontWeightBold">
               Disponibilidad: {service.available ? "Disponible" : "No Disponible"}
             </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => handleAddService(service)}
+              disabled={!service.available}
+            >
+              Añadir
+            </Button>
           </CustomAccordionDetails>
         </CustomAccordion>
       ))}
+       <div style={{ marginTop: '150px' }}>
+        {/* Espacio entre los servicios */}
+      </div>
+      <Typography variant="h4" gutterBottom align="center">
+        Servicios Seleccionados
+      </Typography>
+      <Divider />
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Nombre</TableCell>
+              <TableCell>Descripción</TableCell>
+              <TableCell>Precio</TableCell>
+              <TableCell>Disponibilidad</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {selectedServices.map((service) => (
+              <TableRow key={service.id}>
+                <TableCell>{service.name}</TableCell>
+                <TableCell>{service.description}</TableCell>
+                <TableCell>{service.price}</TableCell>
+                <TableCell>{service.available ? "Disponible" : "No Disponible"}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };
+
 
 export default ServicesList;
