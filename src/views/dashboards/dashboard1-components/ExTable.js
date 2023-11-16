@@ -13,36 +13,63 @@ import {
 const products = [
   {
     id: "1",
-    name: "Sunil Joshi",
-    post: "Web Designer",
-    pname: "Elite Admin",
+    name: "Alex Castillo",
+    post: "Nuevo",
+    pname: "+57 3124136883",
     priority: "Low",
     pbg: "primary.main",
     budget: "3.9",
   },
   {
     id: "2",
-    name: "Andrew McDownland",
-    post: "Project Manager",
-    pname: "Real Homes WP Theme",
+    name: "Andrea Lainez",
+    post: "Nuevo",
+    pname: "+52 7519263",
     priority: "Medium",
     pbg: "secondary.main",
     budget: "24.5",
   },
   {
     id: "3",
-    name: "Christopher Jamil",
-    post: "Project Manager",
-    pname: "MedicalPro WP Theme",
+    name: "Felipe Rodriguez",
+    post: "Veterano",
+    pname: "+52 2346233",
+    priority: "Medium",
+    pbg: "secondary.main",
+    budget: "24.5",
+  },
+  {
+    id: "4",
+    name: "Sofia Guzmán",
+    post: "Nuevo",
+    pname: "+52 3663890",
+    priority: "Medium",
+    pbg: "secondary.main",
+    budget: "24.5",
+  },
+  {
+    id: "5",
+    name: "Liz Sandoval",
+    post: "Nuevo",
+    pname: "+57 3217213718",
+    priority: "Medium",
+    pbg: "secondary.main",
+    budget: "24.5",
+  },
+  {
+    id: "6",
+    name: "Carlos Pérez",
+    post: "Veterano",
+    pname: "+52 5632393",
     priority: "High",
     pbg: "error.main",
     budget: "12.8",
   },
   {
-    id: "4",
-    name: "Nirav Joshi",
-    post: "Frontend Engineer",
-    pname: "Hosting Press HTML",
+    id: "7",
+    name: "Never López",
+    post: "Nuevo",
+    pname: "+57 3145761634",
     priority: "Critical",
     pbg: "success.main",
     budget: "2.4",
@@ -67,22 +94,22 @@ const ExTable = () => {
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Assigned
-            </Typography>
-          </TableCell>
-          <TableCell>
-            <Typography color="textSecondary" variant="h6">
               Name
             </Typography>
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Priority
+              Contacto
+            </Typography>
+          </TableCell>
+          <TableCell>
+            <Typography color="textSecondary" variant="h6">
+              Historial de Compras
             </Typography>
           </TableCell>
           <TableCell align="right">
             <Typography color="textSecondary" variant="h6">
-              Budget
+              Preferencias
             </Typography>
           </TableCell>
         </TableRow>

@@ -9,14 +9,9 @@ const BasicTable = () => {
     <Box>
       <Card variant="outlined">
         <CardContent>
-          <Typography variant="h3">Basic Table</Typography>
+          <Typography variant="h3">Gestión de Clientes</Typography>
           <Box
-            sx={{
-              overflow: {
-                xs: "auto",
-                sm: "unset",
-              },
-            }}
+            
           >
             <ExTable />
           </Box>
