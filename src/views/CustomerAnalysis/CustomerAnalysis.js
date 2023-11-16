@@ -3,6 +3,7 @@ import { Grid, Box } from "@mui/material";
 import CustomerCounter from "./components/CustomerCounter";
 import CustomersPerYear from "./components/CustomersPerYear";
 import ClientsByCity from "./components/ClientsByCity";
+import ClientByAge from "./components/ClientByAge";
 
 const CustomerAnalysis = () => {
     return(
@@ -11,6 +12,7 @@ const CustomerAnalysis = () => {
                 <CustomerCounter/>
                 <CustomersPerYear/>
                 <ClientsByCity/>
+                <ClientByAge/>
             </Grid>
         </Box>
     );
