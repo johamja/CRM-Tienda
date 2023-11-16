@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,14 +8,24 @@ import {
   TextField,
   Button,
   Snackbar,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Switch,
 } from "@mui/material";
 
-const CustomerSupportForm = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [issue, setIssue] = React.useState("");
-  const [message, setMessage] = React.useState("");
-  const [openSnackbar, setOpenSnackbar] = React.useState(false);
+const CustomerSupport = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [issue, setIssue] = useState("");
+  const [message, setMessage] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [supportRequests, setSupportRequests] = useState([]);
+  const [formEnabled, setFormEnabled] = useState(true);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,12 +40,22 @@ const CustomerSupportForm = () => {
     // Simulación de envío exitoso del formulario
     // Aquí podrías reemplazar este setTimeout con la lógica para enviar la solicitud a tu backend
     setTimeout(() => {
-      setOpenSnackbar(true); // Mostrar Snackbar después de enviar con éxito
+      setOpenSnackbar(true); // // Mostrar Snackbar después de enviar con éxito
       // Resetear los campos del formulario después de enviar con éxito
       setName("");
       setEmail("");
       setIssue("");
       setMessage("");
+
+      // Agregar nueva solicitud al arreglo de solicitudes
+      const newRequest = {
+        name,
+        email,
+        issue,
+        message,
+        id: Date.now(),
+      };
+      setSupportRequests([...supportRequests, newRequest]);
     }, 1500);
   };
 
@@ -43,69 +63,110 @@ const CustomerSupportForm = () => {
     setOpenSnackbar(false); // Cerrar el Snackbar
   };
 
+  const handleFormToggle = () => {
+    setFormEnabled(!formEnabled); // Cambiar el estado para habilitar/deshabilitar el formulario
+  };
   return (
     <div>
-      {/* Formulario de Soporte al Cliente */}
+      {/* Vista del Administrador */}
+      <Typography variant="h5" gutterBottom>
+        Vista del Administrador
+      </Typography>
       <Card variant="outlined">
-        <Box
-          sx={{
-            p: 2,
-          }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          bgcolor="primary.main"
-        >
-          <Typography variant="h6" color="white">
-            Formulario de Soporte al Cliente
-          </Typography>
-        </Box>
-        <Divider />
         <CardContent>
-          <form onSubmit={handleSubmit}>
-            <TextField
-              label="Nombre"
-              variant="outlined"
-              fullWidth
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-            <TextField
-              label="Correo electrónico"
-              variant="outlined"
-              fullWidth
-              required
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-            <TextField
-              label="Asunto"
-              variant="outlined"
-              fullWidth
-              required
-              value={issue}
-              onChange={(e) => setIssue(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-            <TextField
-              label="Mensaje"
-              variant="outlined"
-              fullWidth
-              required
-              multiline
-              rows={4}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              sx={{ mb: 2 }}
-            />
-            <Button type="submit" variant="contained" color="primary">
-              Enviar
-            </Button>
-          </form>
+          <Typography variant="h6" gutterBottom>
+            Lista de Solicitudes de Soporte
+          </Typography>
+          <Divider />
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Nombre</TableCell>
+                  <TableCell>Correo Electrónico</TableCell>
+                  <TableCell>Asunto</TableCell>
+                  <TableCell>Mensaje</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {supportRequests.map((request) => (
+                  <TableRow key={request.id}>
+                    <TableCell>{request.name}</TableCell>
+                    <TableCell>{request.email}</TableCell>
+                    <TableCell>{request.issue}</TableCell>
+                    <TableCell>{request.message}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </CardContent>
+      </Card>
+
+      {/* Vista Cliente */}
+      <Typography variant="h5" gutterBottom>
+        Vista Cliente
+      </Typography>
+      <Card variant="outlined" sx={{ marginTop: "20px" }}>
+        <CardContent>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Typography variant="h6" component="div" flexGrow={1}>
+              Formulario de Soporte al Cliente
+            </Typography>
+            <Typography variant="body2" component="div">
+              Habilitar Formulario
+            </Typography>
+            <Switch checked={formEnabled} onChange={handleFormToggle} />
+          </Box>
+          <Divider />
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Nombre"
+          variant="outlined"
+          fullWidth
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          sx={{ mb: 2 }}
+          disabled={!formEnabled}
+        />
+        <TextField
+          label="Correo electrónico"
+          variant="outlined"
+          fullWidth
+          required
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          sx={{ mb: 2 }}
+          disabled={!formEnabled}
+        />
+        <TextField
+          label="Asunto"
+          variant="outlined"
+          fullWidth
+          required
+          value={issue}
+          onChange={(e) => setIssue(e.target.value)}
+          sx={{ mb: 2 }}
+          disabled={!formEnabled}
+        />
+        <TextField
+          label="Mensaje"
+          variant="outlined"
+          fullWidth
+          required
+          multiline
+          rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          sx={{ mb: 2 }}
+          disabled={!formEnabled}
+        />
+        <Button type="submit" variant="contained" color="primary" disabled={!formEnabled}>
+          Enviar
+        </Button>
+      </form>
         </CardContent>
       </Card>
 
@@ -120,4 +181,4 @@ const CustomerSupportForm = () => {
   );
 };
 
-export default CustomerSupportForm;
+export default CustomerSupport;
