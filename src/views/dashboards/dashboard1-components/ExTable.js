@@ -94,9 +94,7 @@ const ExTable = () => {
       [id]: value,
     }));
   };
-
-  
-  
+ 
   return (
     <Table
       aria-label="simple table"
@@ -119,12 +117,12 @@ const ExTable = () => {
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Contacto
+              Regularidad de Compras
             </Typography>
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Regularidad de Compras
+              Contacto
             </Typography>
           </TableCell>
         </TableRow>
