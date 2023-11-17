@@ -42,12 +42,12 @@ const Menuitems = [
     href: "/form-elements/slider",
   },
   {
-    title: "Switch",
+    title: "Servicios Personalizados",
     icon: SwitchLeftOutlinedIcon,
     href: "/form-elements/switch",
   },
   {
-    title: "Form",
+    title: "Servicio al cliente",
     icon: DescriptionOutlinedIcon,
     href: "/form-layouts/form-layouts",
   },
