@@ -78,7 +78,7 @@ const ClientsByGender = () => {
                         }}
 
                     >Clientes por genero</Typography>
-                    <div ref={chartRef} style={{ width: '600px', height: '600px' }} />
+                    <div ref={chartRef} style={{ width: '600px', height: '450px' }} />
                 </Box>
             </CardContent>
         </Card>

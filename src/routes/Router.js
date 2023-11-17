@@ -8,6 +8,7 @@ const FullLayout = lazy(() => import("../layouts/FullLayout/FullLayout.js"));
 /*****Pages******/
 const Dashboard1 = lazy(() => import("../views/dashboards/Dashboard1.js"));
 const CustomerAnalysis = lazy( () => import("../views/CustomerAnalysis/CustomerAnalysis.js"))
+const SalesPerformance = lazy(() => import("../views/SalesPerformance/SalesPerformance"));
 
 /*****Tables******/
 const BasicTable = lazy(() => import("../views/tables/BasicTable.js"));
@@ -41,7 +42,8 @@ const ThemeRoutes = [
       { path: "/form-elements/radio", element: <ExRadio /> },
       { path: "/form-elements/slider", element: <ExSlider /> },
       { path: "/form-elements/switch", element: <ExSwitch /> },
-      {path: "/CustomerAnalysis", element: <CustomerAnalysis />}
+      {path: "/CustomerAnalysis", element: <CustomerAnalysis />},
+      {path: "/SalesPerformance", element: <SalesPerformance />}
     ],
   },
 ];
