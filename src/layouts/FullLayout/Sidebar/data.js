@@ -52,6 +52,10 @@ const Menuitems = [
     href: "/form-layouts/form-layouts",
   },
   {
+    title: "Gestión de Clientes",
+    icon: AutoAwesomeMosaicOutlinedIcon,
+    href: "/tables/basic-table",
+  },{
     title: "Analisis de clientes",
     icon: PeopleAltOutlined,
     href: "/CustomerAnalysis",

@@ -1,5 +1,4 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Box,
@@ -10,8 +9,9 @@ import {
   TableRow,
   Chip,
   Button,
+  TextField,
 } from "@mui/material";
-
+import History from "./History";
 const products = [
   {
     id: "1",
@@ -38,7 +38,7 @@ const products = [
     contacto: "+52 2346233",
     priority: "Frecuente",
     pbg: "secondary.main",
-    budget: "24.5",
+    budget: "",
   },
   {
     id: "4",
@@ -47,7 +47,7 @@ const products = [
     contacto: "+52 3663890",
     priority: "Frecuente",
     pbg: "secondary.main",
-    budget: "24.5",
+    budget: "",
   },
   {
     id: "5",
@@ -56,7 +56,7 @@ const products = [
     contacto: "+57 3217213718",
     priority: "Frecuente",
     pbg: "secondary.main",
-    budget: "24.5",
+    budget: "",
   },
   {
     id: "6",
@@ -65,7 +65,7 @@ const products = [
     contacto: "+52 5632393",
     priority: "Muy frecuente",
     pbg: "success.main",
-    budget: "12.8",
+    budget: "",
   },
   {
     id: "7",
@@ -74,11 +74,33 @@ const products = [
     contacto: "+57 3145761634",
     priority: "Muy ausente",
     pbg: "error.main",
-    budget: "2.4",
+    budget: "",
   },
 ];
 
 const ExTable = () => {
+
+ 
+  const [contactoValues, setContactoValues] = useState(() => {
+    // Recuperar los valores almacenados en localStorage al cargar la página
+    const storedValues = JSON.parse(localStorage.getItem("contactoValues")) || {};
+    return products.reduce((acc, product) => {
+      acc[product.id] = storedValues[product.id] || product.contacto;
+      return acc;
+    }, {});
+  });
+
+  const handleContactoChange = (id, value) => {
+    setContactoValues((prevValues) => ({
+      ...prevValues,
+      [id]: value,
+    }));
+  };
+
+  useEffect(() => {
+    // Guardar los valores en localStorage cada vez que cambian
+    localStorage.setItem("contactoValues", JSON.stringify(contactoValues));
+  }, [contactoValues]);
   return (
     <Table
       aria-label="simple table"
@@ -101,17 +123,12 @@ const ExTable = () => {
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Contacto
+              Regularidad de Compras
             </Typography>
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Regularidad de Compras
-            </Typography>
-          </TableCell>
-          <TableCell align="right">
-            <Typography color="textSecondary" variant="h6">
-              Historial de Compras
+              Contacto
             </Typography>
           </TableCell>
         </TableRow>
@@ -156,11 +173,7 @@ const ExTable = () => {
                 </Box>
               </Box>
             </TableCell>
-            <TableCell>
-              <Typography color="textSecondary" variant="h6">
-                {product.contacto}
-              </Typography>
-            </TableCell>
+            
             <TableCell>
               <Chip
                 sx={{
@@ -174,19 +187,17 @@ const ExTable = () => {
               ></Chip>
             </TableCell>
             <TableCell align="right">
-            <Button
-                variant="contained"
+            <TextField
+                id={`contacto-${product.id}`}
+                label="Contacto"
+                value={contactoValues[product.id]}
+                onChange={(e) => handleContactoChange(product.id, e.target.value)}
+                variant="outlined"
+                fullWidth
                 sx={{
-                  backgroundColor: "secundary.main", // Puedes personalizar el color del botón según tus necesidades
-                  color: "#fff",
+                  mb: 2,
                 }}
-                onClick={() => {
-                  // Puedes agregar aquí la lógica que deseas ejecutar al hacer clic en el botón
-                  console.log(`Botón clickeado para ${product.nombre}`);
-                }}
-              >
-                Ver historial
-              </Button>
+              />
             </TableCell>
           </TableRow>
         ))}
