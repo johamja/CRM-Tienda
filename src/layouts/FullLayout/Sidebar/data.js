@@ -7,6 +7,8 @@ import SwitchCameraOutlinedIcon from '@mui/icons-material/SwitchCameraOutlined';
 import SwitchLeftOutlinedIcon from '@mui/icons-material/SwitchLeftOutlined';
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import AutoAwesomeMosaicOutlinedIcon from '@mui/icons-material/AutoAwesomeMosaicOutlined';
+import PeopleAltOutlined  from '@mui/icons-material/PeopleAltOutlined'
+import StoreOutlined  from '@mui/icons-material/StoreOutlined'
 
 const Menuitems = [
   {
@@ -40,12 +42,12 @@ const Menuitems = [
     href: "/form-elements/slider",
   },
   {
-    title: "Switch",
+    title: "Servicios Personalizados",
     icon: SwitchLeftOutlinedIcon,
     href: "/form-elements/switch",
   },
   {
-    title: "Form",
+    title: "Servicio al cliente",
     icon: DescriptionOutlinedIcon,
     href: "/form-layouts/form-layouts",
   },
@@ -53,6 +55,15 @@ const Menuitems = [
     title: "Gestión de Clientes",
     icon: AutoAwesomeMosaicOutlinedIcon,
     href: "/tables/basic-table",
+  },{
+    title: "Analisis de clientes",
+    icon: PeopleAltOutlined,
+    href: "/CustomerAnalysis",
+  },
+  {
+    title: "Rendimiento de ventas",
+    icon: StoreOutlined,
+    href: "/SalesPerformance",
   },
 ];
 
