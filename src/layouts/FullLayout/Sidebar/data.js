@@ -50,7 +50,7 @@ const Menuitems = [
     href: "/form-layouts/form-layouts",
   },
   {
-    title: "Table",
+    title: "Gestión de Clientes",
     icon: AutoAwesomeMosaicOutlinedIcon,
     href: "/tables/basic-table",
   },
