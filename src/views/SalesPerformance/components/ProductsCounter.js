@@ -40,7 +40,7 @@ const ProductsCounter = () => {
                                     sx={{
                                         marginBottom: "0",
                                     }}
-                                    gutterBottom>203</Typography>
+                                    gutterBottom>223</Typography>
                             </Box>
 
                         </Box>
@@ -70,7 +70,7 @@ const ProductsCounter = () => {
                                     sx={{
                                         marginBottom: "0",
                                     }}
-                                    gutterBottom>203</Typography>
+                                    gutterBottom>34</Typography>
                             </Box>
 
                         </Box>
@@ -100,7 +100,7 @@ const ProductsCounter = () => {
                                     sx={{
                                         marginBottom: "0",
                                     }}
-                                    gutterBottom>203</Typography>
+                                    gutterBottom>192</Typography>
                             </Box>
 
                         </Box>

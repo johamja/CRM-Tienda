@@ -23,7 +23,7 @@ const ProductsSoldPerMonth = () => {
                     }
                 },
                 legend: {
-                    data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+                    data: ['Smartphones', 'Laptops/Portátiles', 'Accesorios', 'Smartwatches/Fitbits', 'Televisores']
                 },
                 toolbox: {
                     feature: {
@@ -40,7 +40,7 @@ const ProductsSoldPerMonth = () => {
                     {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                        data: ['May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov']
                     }
                 ],
                 yAxis: [
@@ -50,7 +50,7 @@ const ProductsSoldPerMonth = () => {
                 ],
                 series: [
                     {
-                        name: 'Email',
+                        name: 'Smartphones',
                         type: 'line',
                         stack: 'Total',
                         areaStyle: {},
@@ -60,7 +60,7 @@ const ProductsSoldPerMonth = () => {
                         data: [120, 132, 101, 134, 90, 230, 210]
                     },
                     {
-                        name: 'Union Ads',
+                        name: 'Laptops/Portátiles',
                         type: 'line',
                         stack: 'Total',
                         areaStyle: {},
@@ -70,7 +70,7 @@ const ProductsSoldPerMonth = () => {
                         data: [220, 182, 191, 234, 290, 330, 310]
                     },
                     {
-                        name: 'Video Ads',
+                        name: 'Smartwatches/Fitbits',
                         type: 'line',
                         stack: 'Total',
                         areaStyle: {},
@@ -80,17 +80,7 @@ const ProductsSoldPerMonth = () => {
                         data: [150, 232, 201, 154, 190, 330, 410]
                     },
                     {
-                        name: 'Direct',
-                        type: 'line',
-                        stack: 'Total',
-                        areaStyle: {},
-                        emphasis: {
-                            focus: 'series'
-                        },
-                        data: [320, 332, 301, 334, 390, 330, 320]
-                    },
-                    {
-                        name: 'Search Engine',
+                        name: 'Accesorios',
                         type: 'line',
                         stack: 'Total',
                         label: {
@@ -102,7 +92,17 @@ const ProductsSoldPerMonth = () => {
                             focus: 'series'
                         },
                         data: [820, 932, 901, 934, 1290, 1330, 1320]
-                    }
+                    },
+                    {
+                        name: 'Televisores',
+                        type: 'line',
+                        stack: 'Total',
+                        areaStyle: {},
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [320, 332, 301, 334, 390, 330, 320]
+                    },
                 ]
             };
 
@@ -128,7 +128,7 @@ const ProductsSoldPerMonth = () => {
                           paddingBottom: "20px",
                       }}
 
-                  >Productos vendidos por mes</Typography>
+                  >Categorias de productos mas vendidos por mes</Typography>
                   <div ref={chartRef} style={{ width: '1200px', height: '500px' }} />
               </Box>
           </CardContent>

@@ -17,17 +17,19 @@ const ClientByAge = () => {
                 //     text: 'World Population'
                 // },
                 xAxis: {
-                    name: "edad",
+                    name: "Edad",
                     type: 'category',
                     data: [18,19,20,21,22,23]
                 },
                 yAxis: {
+                    name:"Clientes",
                     type: 'value'
                 },
                 series: [
                     {
                         data: [150, 230, 224, 218, 135, 147, 260],
-                        type: 'line'
+                        type: 'line',
+                        areaStyle: {}
                     }
                 ]
             };

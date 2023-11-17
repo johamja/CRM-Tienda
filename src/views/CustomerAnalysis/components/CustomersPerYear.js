@@ -14,15 +14,17 @@ const CustomersPerYear = () => {
 
             const option = {
                 xAxis: {
+                    name: "Años",
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    data: ['2017', '2018', '2019', '2020', '2021', '2022', '2023']
                 },
                 yAxis: {
+                    name: "Clientes",
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [120, 200, 150, 80, 70, 110, 130],
+                        data: [120, 200, 340, 550, 500, 550, 793],
                         type: 'bar',
                         showBackground: true,
                         backgroundStyle: {
@@ -55,7 +57,7 @@ const CustomersPerYear = () => {
                       }}
 
                   >Clientes por año</Typography>
-                  <div ref={chartRef} style={{ width: '1300px', height: '500px' }} />
+                  <div ref={chartRef} style={{ width: '1200px', height: '500px' }} />
               </Box>
           </CardContent>
       </Card>

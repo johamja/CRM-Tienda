@@ -1,7 +1,8 @@
 import {Box, Card, CardContent, Divider, Typography} from "@mui/material";
-import {Person, SpaceBar, ThreeDRotation} from '@mui/icons-material';
+import {Person, EmojiPeople, ThreeDRotation} from '@mui/icons-material';
 
-
+import instagram from "../../../assets/images/users/instagram.png";
+import facebook from "../../../assets/images/users/facebook.png";
 
 const CustomerCounter = () => {
 
@@ -35,7 +36,7 @@ const CustomerCounter = () => {
                             sx={{
                                 marginBottom: "0",
                             }}
-                            gutterBottom>203</Typography>
+                            gutterBottom>793</Typography>
                     </Box>
 
                 </Box>
@@ -60,13 +61,13 @@ const CustomerCounter = () => {
                         flexDirection: "rows",
                         gap: "24px"
                     }}>
-                        <Person fontSize="large"></Person>
+                        <EmojiPeople fontSize="large"></EmojiPeople>
                         <Typography
                             variant="h1"
                             sx={{
                                 marginBottom: "0",
                             }}
-                            gutterBottom>203</Typography>
+                            gutterBottom>1927</Typography>
                     </Box>
 
                 </Box>
@@ -89,15 +90,16 @@ const CustomerCounter = () => {
                     <Box sx={{
                         display: "flex",
                         flexDirection: "rows",
+                        alignItems: "center",
                         gap: "24px"
                     }}>
-                        <Person fontSize="large"></Person>
+                        <img src={instagram} style={{height: "24px",width: "24px"}} alt="img"/>
                         <Typography
                             variant="h1"
                             sx={{
                                 marginBottom: "0",
                             }}
-                            gutterBottom>203</Typography>
+                            gutterBottom>382</Typography>
                     </Box>
 
                 </Box>
@@ -120,15 +122,16 @@ const CustomerCounter = () => {
                     <Box sx={{
                         display: "flex",
                         flexDirection: "rows",
+                        alignItems: "center",
                         gap: "24px"
                     }}>
-                        <Person fontSize="large"></Person>
+                        <img src={facebook} style={{height: "24px",width: "24px"}} alt="img"/>
                         <Typography
                             variant="h1"
                             sx={{
                                 marginBottom: "0",
                             }}
-                            gutterBottom>203</Typography>
+                            gutterBottom>520</Typography>
                     </Box>
 
                 </Box>

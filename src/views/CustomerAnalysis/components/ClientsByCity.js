@@ -30,23 +30,36 @@ const ClientsByCity = () => {
                     containLabel: true
                 },
                 xAxis: {
+                    name:"Clientes",
+
                     type: 'value',
                     boundaryGap: [0, 0.01]
                 },
                 yAxis: {
+                    name:"Ciudad",
                     type: 'category',
-                    data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
+                    data: ['Bucaramanga', 'Cali', 'Bogota', 'Armenia', 'Barranquilla', 'Medellin']
                 },
                 series: [
                     {
-                        name: '2011',
+                        name: '2023',
                         type: 'bar',
-                        data: [18203, 23489, 29034, 104970, 131744, 630230]
+                        data: [100, 50, 150, 200, 300, 500]
                     },
                     {
-                        name: '2012',
+                        name: '2022',
                         type: 'bar',
-                        data: [19325, 23438, 31000, 121594, 134141, 681807]
+                        data: [95, 45, 145, 170, 200, 200]
+                    },
+                    {
+                        name: '2021',
+                        type: 'bar',
+                        data: [75, 43, 120, 20, 100, 180]
+                    },
+                    {
+                        name: '2019',
+                        type: 'bar',
+                        data: [22, 12, 60, 0, 90, 20]
                     }
                 ]
 
@@ -75,7 +88,7 @@ const ClientsByCity = () => {
                         }}
 
                     >Clientes por ciudad</Typography>
-                    <div ref={chartRef} style={{ width: '1300px', height: '500px' }} />
+                    <div ref={chartRef} style={{ width: '1200px', height: '500px' }} />
                 </Box>
             </CardContent>
         </Card>

@@ -17,16 +17,16 @@ const LossesPerMonth = () => {
                 //     text: 'World Population'
                 // },
                 xAxis: {
-                    name: "edad",
+                    name: "Meses",
                     type: 'category',
-                    data: [18,19,20,21,22,23]
+                    data: [6,7,8,9,10,11]
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [
                     {
-                        data: [150, 230, 224, 218, 135, 147, 260],
+                        data: [-150, -230, -224, -218, -135, -147, -260],
                         type: 'line'
                     }
                 ]
