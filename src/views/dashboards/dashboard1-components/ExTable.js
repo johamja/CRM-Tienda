@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Box,
@@ -81,12 +81,14 @@ const products = [
 const ExTable = () => {
 
  
-  const [contactoValues, setContactoValues] = useState(
-    products.reduce((acc, product) => {
-      acc[product.id] = product.contacto;
+  const [contactoValues, setContactoValues] = useState(() => {
+    // Recuperar los valores almacenados en localStorage al cargar la página
+    const storedValues = JSON.parse(localStorage.getItem("contactoValues")) || {};
+    return products.reduce((acc, product) => {
+      acc[product.id] = storedValues[product.id] || product.contacto;
       return acc;
-    }, {})
-  );
+    }, {});
+  });
 
   const handleContactoChange = (id, value) => {
     setContactoValues((prevValues) => ({
@@ -94,7 +96,11 @@ const ExTable = () => {
       [id]: value,
     }));
   };
- 
+
+  useEffect(() => {
+    // Guardar los valores en localStorage cada vez que cambian
+    localStorage.setItem("contactoValues", JSON.stringify(contactoValues));
+  }, [contactoValues]);
   return (
     <Table
       aria-label="simple table"
