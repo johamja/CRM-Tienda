@@ -1,5 +1,4 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
 import {
   Typography,
   Box,
@@ -10,8 +9,9 @@ import {
   TableRow,
   Chip,
   Button,
+  TextField,
 } from "@mui/material";
-
+import History from "./History";
 const products = [
   {
     id: "1",
@@ -79,6 +79,24 @@ const products = [
 ];
 
 const ExTable = () => {
+
+ 
+  const [contactoValues, setContactoValues] = useState(
+    products.reduce((acc, product) => {
+      acc[product.id] = product.contacto;
+      return acc;
+    }, {})
+  );
+
+  const handleContactoChange = (id, value) => {
+    setContactoValues((prevValues) => ({
+      ...prevValues,
+      [id]: value,
+    }));
+  };
+
+  
+  
   return (
     <Table
       aria-label="simple table"
@@ -157,9 +175,17 @@ const ExTable = () => {
               </Box>
             </TableCell>
             <TableCell>
-              <Typography color="textSecondary" variant="h6">
-                {product.contacto}
-              </Typography>
+            <TextField
+                id={`contacto-${product.id}`}
+                label="Contacto"
+                value={contactoValues[product.id]}
+                onChange={(e) => handleContactoChange(product.id, e.target.value)}
+                variant="outlined"
+                fullWidth
+                sx={{
+                  mb: 2,
+                }}
+              />
             </TableCell>
             <TableCell>
               <Chip
@@ -175,18 +201,16 @@ const ExTable = () => {
             </TableCell>
             <TableCell align="right">
             <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "secundary.main", // Puedes personalizar el color del botón según tus necesidades
-                  color: "#fff",
-                }}
-                onClick={() => {
-                  // Puedes agregar aquí la lógica que deseas ejecutar al hacer clic en el botón
-                  console.log(`Botón clickeado para ${product.nombre}`);
-                }}
-              >
-                Ver historial
-              </Button>
+              variant="contained"
+              sx={{
+                backgroundColor: "secundary.main",
+                color: "#fff",
+              }}
+              
+              
+            >
+              Ver historial
+            </Button>
             </TableCell>
           </TableRow>
         ))}
