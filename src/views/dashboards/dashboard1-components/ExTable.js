@@ -38,7 +38,7 @@ const products = [
     contacto: "+52 2346233",
     priority: "Frecuente",
     pbg: "secondary.main",
-    budget: "24.5",
+    budget: "",
   },
   {
     id: "4",
@@ -47,7 +47,7 @@ const products = [
     contacto: "+52 3663890",
     priority: "Frecuente",
     pbg: "secondary.main",
-    budget: "24.5",
+    budget: "",
   },
   {
     id: "5",
@@ -56,7 +56,7 @@ const products = [
     contacto: "+57 3217213718",
     priority: "Frecuente",
     pbg: "secondary.main",
-    budget: "24.5",
+    budget: "",
   },
   {
     id: "6",
@@ -65,7 +65,7 @@ const products = [
     contacto: "+52 5632393",
     priority: "Muy frecuente",
     pbg: "success.main",
-    budget: "12.8",
+    budget: "",
   },
   {
     id: "7",
@@ -74,7 +74,7 @@ const products = [
     contacto: "+57 3145761634",
     priority: "Muy ausente",
     pbg: "error.main",
-    budget: "2.4",
+    budget: "",
   },
 ];
 
@@ -127,11 +127,6 @@ const ExTable = () => {
               Regularidad de Compras
             </Typography>
           </TableCell>
-          <TableCell align="right">
-            <Typography color="textSecondary" variant="h6">
-              Historial de Compras
-            </Typography>
-          </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -174,19 +169,7 @@ const ExTable = () => {
                 </Box>
               </Box>
             </TableCell>
-            <TableCell>
-            <TextField
-                id={`contacto-${product.id}`}
-                label="Contacto"
-                value={contactoValues[product.id]}
-                onChange={(e) => handleContactoChange(product.id, e.target.value)}
-                variant="outlined"
-                fullWidth
-                sx={{
-                  mb: 2,
-                }}
-              />
-            </TableCell>
+            
             <TableCell>
               <Chip
                 sx={{
@@ -200,17 +183,17 @@ const ExTable = () => {
               ></Chip>
             </TableCell>
             <TableCell align="right">
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "secundary.main",
-                color: "#fff",
-              }}
-              
-              
-            >
-              Ver historial
-            </Button>
+            <TextField
+                id={`contacto-${product.id}`}
+                label="Contacto"
+                value={contactoValues[product.id]}
+                onChange={(e) => handleContactoChange(product.id, e.target.value)}
+                variant="outlined"
+                fullWidth
+                sx={{
+                  mb: 2,
+                }}
+              />
             </TableCell>
           </TableRow>
         ))}
